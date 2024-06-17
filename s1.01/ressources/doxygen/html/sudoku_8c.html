@@ -1,0 +1,460 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.4"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Un sudoku en mode console: Référence du fichier /home/ratpeureux/Bleas/sae/s1.01/sudoku/sudoku.c</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Un sudoku en mode console
+   </div>
+   <div id="projectbrief">Documentation d&#39;un jeu de Sudoku en C.</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.4 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search",'Recherche','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#define-members">Macros</a> &#124;
+<a href="#typedef-members">Définitions de type</a> &#124;
+<a href="#func-members">Fonctions</a>  </div>
+  <div class="headertitle"><div class="title">Référence du fichier /home/ratpeureux/Bleas/sae/s1.01/sudoku/sudoku.c</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Programme de résolution de Sudoku en mode console.  
+<a href="#details">Plus de détails...</a></p>
+<div class="textblock"><code>#include &lt;stdlib.h&gt;</code><br />
+<code>#include &lt;stdio.h&gt;</code><br />
+<code>#include &lt;stdbool.h&gt;</code><br />
+<code>#include &lt;string.h&gt;</code><br />
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:a0240ac851181b84ac374872dc5434ee4"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sudoku_8c.html#a0240ac851181b84ac374872dc5434ee4">N</a>&#160;&#160;&#160;3</td></tr>
+<tr class="memdesc:a0240ac851181b84ac374872dc5434ee4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Taille d'un bloc de Sudoku.  <a href="sudoku_8c.html#a0240ac851181b84ac374872dc5434ee4">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a0240ac851181b84ac374872dc5434ee4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7b29335add3a553ed85d0e3ace85629c"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sudoku_8c.html#a7b29335add3a553ed85d0e3ace85629c">TAILLE</a>&#160;&#160;&#160;9</td></tr>
+<tr class="memdesc:a7b29335add3a553ed85d0e3ace85629c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Taille de la grille de Sudoku.  <a href="sudoku_8c.html#a7b29335add3a553ed85d0e3ace85629c">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a7b29335add3a553ed85d0e3ace85629c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
+Définitions de type</h2></td></tr>
+<tr class="memitem:a1b89d9af8baea27f48663c416006e88f"><td class="memItemLeft" align="right" valign="top">typedef int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sudoku_8c.html#a1b89d9af8baea27f48663c416006e88f">tGrille</a>[<a class="el" href="sudoku_8c.html#a7b29335add3a553ed85d0e3ace85629c">TAILLE</a>][<a class="el" href="sudoku_8c.html#a7b29335add3a553ed85d0e3ace85629c">TAILLE</a>]</td></tr>
+<tr class="memdesc:a1b89d9af8baea27f48663c416006e88f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type représentant une grille de Sudoku.  <a href="sudoku_8c.html#a1b89d9af8baea27f48663c416006e88f">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a1b89d9af8baea27f48663c416006e88f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Fonctions</h2></td></tr>
+<tr class="memitem:ab7b298099cbac123a5cf7b1f1abc411a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sudoku_8c.html#ab7b298099cbac123a5cf7b1f1abc411a">afficherGrille</a> (<a class="el" href="sudoku_8c.html#a1b89d9af8baea27f48663c416006e88f">tGrille</a>)</td></tr>
+<tr class="memdesc:ab7b298099cbac123a5cf7b1f1abc411a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Affiche la grille de Sudoku.  <a href="sudoku_8c.html#ab7b298099cbac123a5cf7b1f1abc411a">Plus de détails...</a><br /></td></tr>
+<tr class="separator:ab7b298099cbac123a5cf7b1f1abc411a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa3ee2cc9921057f1141e8ee90a91512c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sudoku_8c.html#aa3ee2cc9921057f1141e8ee90a91512c">chargerGrille</a> (<a class="el" href="sudoku_8c.html#a1b89d9af8baea27f48663c416006e88f">tGrille</a>)</td></tr>
+<tr class="memdesc:aa3ee2cc9921057f1141e8ee90a91512c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Charge une grille de Sudoku à partir d'un fichier.  <a href="sudoku_8c.html#aa3ee2cc9921057f1141e8ee90a91512c">Plus de détails...</a><br /></td></tr>
+<tr class="separator:aa3ee2cc9921057f1141e8ee90a91512c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac27a31e26d4fc963ce222c7592c75f53"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sudoku_8c.html#ac27a31e26d4fc963ce222c7592c75f53">gpleine</a> (<a class="el" href="sudoku_8c.html#a1b89d9af8baea27f48663c416006e88f">tGrille</a>)</td></tr>
+<tr class="memdesc:ac27a31e26d4fc963ce222c7592c75f53"><td class="mdescLeft">&#160;</td><td class="mdescRight">Vérifie si la grille est pleine.  <a href="sudoku_8c.html#ac27a31e26d4fc963ce222c7592c75f53">Plus de détails...</a><br /></td></tr>
+<tr class="separator:ac27a31e26d4fc963ce222c7592c75f53"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae66f6b31b5ad750f1fe042a706a4e3d4"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sudoku_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main</a> ()</td></tr>
+<tr class="memdesc:ae66f6b31b5ad750f1fe042a706a4e3d4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fonction principale du programme de résolution de Sudoku.  <a href="sudoku_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4">Plus de détails...</a><br /></td></tr>
+<tr class="separator:ae66f6b31b5ad750f1fe042a706a4e3d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:accce4fb88b0ef7c03360a49ac4fb1b0d"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sudoku_8c.html#accce4fb88b0ef7c03360a49ac4fb1b0d">nbElementsColonne</a> (<a class="el" href="sudoku_8c.html#a1b89d9af8baea27f48663c416006e88f">tGrille</a> g, int col)</td></tr>
+<tr class="memdesc:accce4fb88b0ef7c03360a49ac4fb1b0d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calcule le nombre d'éléments non nuls dans une colonne de la grille.  <a href="sudoku_8c.html#accce4fb88b0ef7c03360a49ac4fb1b0d">Plus de détails...</a><br /></td></tr>
+<tr class="separator:accce4fb88b0ef7c03360a49ac4fb1b0d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5c765aa879404450444a8965a5272e58"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sudoku_8c.html#a5c765aa879404450444a8965a5272e58">nbElementsLigne</a> (<a class="el" href="sudoku_8c.html#a1b89d9af8baea27f48663c416006e88f">tGrille</a> g, int lig)</td></tr>
+<tr class="memdesc:a5c765aa879404450444a8965a5272e58"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calcule le nombre d'éléments non nuls dans une ligne de la grille.  <a href="sudoku_8c.html#a5c765aa879404450444a8965a5272e58">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a5c765aa879404450444a8965a5272e58"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae7ab0f20e4d850c06aec4cfd7a97c4c3"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sudoku_8c.html#ae7ab0f20e4d850c06aec4cfd7a97c4c3">possible</a> (<a class="el" href="sudoku_8c.html#a1b89d9af8baea27f48663c416006e88f">tGrille</a>, int, int, int)</td></tr>
+<tr class="memdesc:ae7ab0f20e4d850c06aec4cfd7a97c4c3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Vérifie si une valeur peut être insérée dans une case de la grille.  <a href="sudoku_8c.html#ae7ab0f20e4d850c06aec4cfd7a97c4c3">Plus de détails...</a><br /></td></tr>
+<tr class="separator:ae7ab0f20e4d850c06aec4cfd7a97c4c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4ddef467d70df44dc4af777a9e9f1737"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sudoku_8c.html#a4ddef467d70df44dc4af777a9e9f1737">saisir</a> (int *)</td></tr>
+<tr class="memdesc:a4ddef467d70df44dc4af777a9e9f1737"><td class="mdescLeft">&#160;</td><td class="mdescRight">Saisie d'un entier avec gestion des erreurs.  <a href="sudoku_8c.html#a4ddef467d70df44dc4af777a9e9f1737">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a4ddef467d70df44dc4af777a9e9f1737"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
+<div class="textblock"><p >Programme de résolution de Sudoku en mode console. </p>
+<p ><br  />
+</p>
+<dl class="section author"><dt>Auteur</dt><dd>BLÉAS </dd></dl>
+<dl class="section version"><dt>Version</dt><dd>1.0 </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>29 novembre 2023</dd></dl>
+<p>Ce programme permet à l'utilisateur de jouer au Sudoku en chargeant une grille à partir d'un fichier. L'utilisateur peut remplir les cases vides de la grille en respectant les règles du Sudoku. Le programme indique si une valeur peut être placée dans une case donnée en fonction des valeurs déjà présentes dans la ligne, la colonne et le bloc. </p>
+</div><h2 class="groupheader">Documentation des macros</h2>
+<a id="a0240ac851181b84ac374872dc5434ee4" name="a0240ac851181b84ac374872dc5434ee4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0240ac851181b84ac374872dc5434ee4">&#9670;&nbsp;</a></span>N</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define N&#160;&#160;&#160;3</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Taille d'un bloc de Sudoku. </p>
+<p >Taille d'une ligne/colonne d'une sous-grille de Sudoku. </p>
+
+</div>
+</div>
+<a id="a7b29335add3a553ed85d0e3ace85629c" name="a7b29335add3a553ed85d0e3ace85629c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7b29335add3a553ed85d0e3ace85629c">&#9670;&nbsp;</a></span>TAILLE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define TAILLE&#160;&#160;&#160;9</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Taille de la grille de Sudoku. </p>
+<p >Taille d'une ligne/colonne d'une grille de Sudoku. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Documentation des définitions de type</h2>
+<a id="a1b89d9af8baea27f48663c416006e88f" name="a1b89d9af8baea27f48663c416006e88f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1b89d9af8baea27f48663c416006e88f">&#9670;&nbsp;</a></span>tGrille</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">tGrille</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Type représentant une grille de Sudoku. </p>
+<p >Tableau 9 par 9 correspondant à la grille d'un Sudoku. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Documentation des fonctions</h2>
+<a id="ab7b298099cbac123a5cf7b1f1abc411a" name="ab7b298099cbac123a5cf7b1f1abc411a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab7b298099cbac123a5cf7b1f1abc411a">&#9670;&nbsp;</a></span>afficherGrille()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void afficherGrille </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="sudoku_8c.html#a1b89d9af8baea27f48663c416006e88f">tGrille</a>&#160;</td>
+          <td class="paramname"><em>g</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Affiche la grille de Sudoku. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">g</td><td>Grille de Sudoku à afficher.</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Cette fonction affiche et met en forme le tableau de type tGrille pour un affichage meilleur et semblable à une vrai grille de Sudoku. La fonction utilise les fonctions nbElementsLigne et nbElementsColonne pour :</p><ul>
+<li>ajouter à l'affichage le nombre de cases non vides dans une ligne,</li>
+<li>et ajouter à l'affichage le nombre de cases non vides dans une colonne. </li>
+</ul>
+
+</div>
+</div>
+<a id="aa3ee2cc9921057f1141e8ee90a91512c" name="aa3ee2cc9921057f1141e8ee90a91512c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa3ee2cc9921057f1141e8ee90a91512c">&#9670;&nbsp;</a></span>chargerGrille()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void chargerGrille </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="sudoku_8c.html#a1b89d9af8baea27f48663c416006e88f">tGrille</a>&#160;</td>
+          <td class="paramname"><em>g</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Charge une grille de Sudoku à partir d'un fichier. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">g</td><td>Grille de Sudoku à remplir.</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Utilisateur saisi un nom de fichier en .sud, la fonction vérifie s'il existe et si celui-ci n'est pas altéré, si c'est le cas ; la grille est initialisée. </p>
+
+</div>
+</div>
+<a id="ac27a31e26d4fc963ce222c7592c75f53" name="ac27a31e26d4fc963ce222c7592c75f53"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac27a31e26d4fc963ce222c7592c75f53">&#9670;&nbsp;</a></span>gpleine()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool gpleine </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="sudoku_8c.html#a1b89d9af8baea27f48663c416006e88f">tGrille</a>&#160;</td>
+          <td class="paramname"><em>g</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Vérifie si la grille est pleine. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">g</td><td>Grille de Sudoku. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>true si la grille est pleine, false sinon.</dd></dl>
+<p>La fonction parcourt le tableau 'g' de type tGrille et vérifie s'il reste des 0, si oui la fonction principale boucle. </p>
+
+</div>
+</div>
+<a id="ae66f6b31b5ad750f1fe042a706a4e3d4" name="ae66f6b31b5ad750f1fe042a706a4e3d4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae66f6b31b5ad750f1fe042a706a4e3d4">&#9670;&nbsp;</a></span>main()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int main </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Fonction principale du programme de résolution de Sudoku. </p>
+<dl class="section return"><dt>Renvoie</dt><dd>EXIT_SUCCESS, Code de sortie normale du programme.</dd></dl>
+<p>Le programme principal permet de jouer à un sudoku avec l'aide de plusieurs fonctions/procédures : il créé et génère une grille, l'affiche, demande à l'utilisateur des indices où saisir une valeur dans la grille, stock ces valeurs, vérifie si c'est possible de placer la valeur aux coordonnées, puis boucle, lorsque la grille est pleine ; il affiche un message de fin. </p>
+
+</div>
+</div>
+<a id="accce4fb88b0ef7c03360a49ac4fb1b0d" name="accce4fb88b0ef7c03360a49ac4fb1b0d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#accce4fb88b0ef7c03360a49ac4fb1b0d">&#9670;&nbsp;</a></span>nbElementsColonne()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int nbElementsColonne </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="sudoku_8c.html#a1b89d9af8baea27f48663c416006e88f">tGrille</a>&#160;</td>
+          <td class="paramname"><em>g</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>col</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Calcule le nombre d'éléments non nuls dans une colonne de la grille. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">g</td><td>Grille de Sudoku. </td></tr>
+    <tr><td class="paramname">col</td><td>Colonne de la grille. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section see"><dt>Voir également</dt><dd><a class="el" href="sudoku_8c.html#ab7b298099cbac123a5cf7b1f1abc411a" title="Affiche la grille de Sudoku.">afficherGrille()</a> </dd></dl>
+<dl class="section return"><dt>Renvoie</dt><dd>Le nombre d'éléments non nuls dans la colonne.</dd></dl>
+<p>La fonction parcourt une colonne 'col' dans la grille et compte le nombre de valeurs non nuls. </p>
+
+</div>
+</div>
+<a id="a5c765aa879404450444a8965a5272e58" name="a5c765aa879404450444a8965a5272e58"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5c765aa879404450444a8965a5272e58">&#9670;&nbsp;</a></span>nbElementsLigne()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int nbElementsLigne </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="sudoku_8c.html#a1b89d9af8baea27f48663c416006e88f">tGrille</a>&#160;</td>
+          <td class="paramname"><em>g</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>lig</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Calcule le nombre d'éléments non nuls dans une ligne de la grille. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">g</td><td>Grille de Sudoku. </td></tr>
+    <tr><td class="paramname">lig</td><td>Ligne de la grille. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section see"><dt>Voir également</dt><dd><a class="el" href="sudoku_8c.html#ab7b298099cbac123a5cf7b1f1abc411a" title="Affiche la grille de Sudoku.">afficherGrille()</a> </dd></dl>
+<dl class="section return"><dt>Renvoie</dt><dd>Le nombre d'éléments non nuls dans la ligne.</dd></dl>
+<p>La fonction parcourt une ligne 'lig' dans la grille et compte le nombre de valeurs non nuls. </p>
+
+</div>
+</div>
+<a id="ae7ab0f20e4d850c06aec4cfd7a97c4c3" name="ae7ab0f20e4d850c06aec4cfd7a97c4c3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae7ab0f20e4d850c06aec4cfd7a97c4c3">&#9670;&nbsp;</a></span>possible()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool possible </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="sudoku_8c.html#a1b89d9af8baea27f48663c416006e88f">tGrille</a>&#160;</td>
+          <td class="paramname"><em>g</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>lig</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>col</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>val</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Vérifie si une valeur peut être insérée dans une case de la grille. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">g</td><td>Grille de Sudoku. </td></tr>
+    <tr><td class="paramname">lig</td><td>Ligne de la case. </td></tr>
+    <tr><td class="paramname">col</td><td>Colonne de la case. </td></tr>
+    <tr><td class="paramname">val</td><td>Valeur à insérer. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>true si l'insertion est possible, false sinon.</dd></dl>
+<p>La fonction vérifie à l'aide de boucles 'pour' :</p><ul>
+<li>si la valeur 'val' n'est pas déjà présente dans la ligne 'lig' et dans la colonne 'col',</li>
+<li>et si la valeur 'val' n'est pas déjà présente la sous-grille correspondante. </li>
+</ul>
+
+</div>
+</div>
+<a id="a4ddef467d70df44dc4af777a9e9f1737" name="a4ddef467d70df44dc4af777a9e9f1737"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4ddef467d70df44dc4af777a9e9f1737">&#9670;&nbsp;</a></span>saisir()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void saisir </td>
+          <td>(</td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>S</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Saisie d'un entier avec gestion des erreurs. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">S</td><td>Pointeur vers l'entier à saisir.</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Cette fonction demande à l'utilisateur une saisie et vérifie s'il s'agit bien d'un entier entre 1 et 9, retourne un message d'erreur si ce n'est pas le cas. </p>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré le Samedi 2 Décembre 2023 18:43:54 pour Un sudoku en mode console par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4
+</small></address>
+</body>
+</html>

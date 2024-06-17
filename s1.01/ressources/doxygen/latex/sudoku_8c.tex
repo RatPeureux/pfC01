@@ -1,0 +1,253 @@
+\hypertarget{sudoku_8c}{}\doxysection{Référence du fichier /home/ratpeureux/\+Bleas/sae/s1.01/sudoku/sudoku.c}
+\label{sudoku_8c}\index{/home/ratpeureux/Bleas/sae/s1.01/sudoku/sudoku.c@{/home/ratpeureux/Bleas/sae/s1.01/sudoku/sudoku.c}}
+
+
+Programme de résolution de Sudoku en mode console.  
+
+
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{sudoku_8c_a0240ac851181b84ac374872dc5434ee4}{N}}~3
+\begin{DoxyCompactList}\small\item\em Taille d\textquotesingle{}un bloc de Sudoku. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{sudoku_8c_a7b29335add3a553ed85d0e3ace85629c}{TAILLE}}~9
+\begin{DoxyCompactList}\small\item\em Taille de la grille de Sudoku. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Définitions de type}
+\begin{DoxyCompactItemize}
+\item 
+typedef int \mbox{\hyperlink{sudoku_8c_a1b89d9af8baea27f48663c416006e88f}{t\+Grille}}\mbox{[}\mbox{\hyperlink{sudoku_8c_a7b29335add3a553ed85d0e3ace85629c}{TAILLE}}\mbox{]}\mbox{[}\mbox{\hyperlink{sudoku_8c_a7b29335add3a553ed85d0e3ace85629c}{TAILLE}}\mbox{]}
+\begin{DoxyCompactList}\small\item\em Type représentant une grille de Sudoku. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{sudoku_8c_ab7b298099cbac123a5cf7b1f1abc411a}{afficher\+Grille}} (\mbox{\hyperlink{sudoku_8c_a1b89d9af8baea27f48663c416006e88f}{t\+Grille}})
+\begin{DoxyCompactList}\small\item\em Affiche la grille de Sudoku. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{sudoku_8c_aa3ee2cc9921057f1141e8ee90a91512c}{charger\+Grille}} (\mbox{\hyperlink{sudoku_8c_a1b89d9af8baea27f48663c416006e88f}{t\+Grille}})
+\begin{DoxyCompactList}\small\item\em Charge une grille de Sudoku à partir d\textquotesingle{}un fichier. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{sudoku_8c_ac27a31e26d4fc963ce222c7592c75f53}{gpleine}} (\mbox{\hyperlink{sudoku_8c_a1b89d9af8baea27f48663c416006e88f}{t\+Grille}})
+\begin{DoxyCompactList}\small\item\em Vérifie si la grille est pleine. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{sudoku_8c_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\begin{DoxyCompactList}\small\item\em Fonction principale du programme de résolution de Sudoku. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{sudoku_8c_accce4fb88b0ef7c03360a49ac4fb1b0d}{nb\+Elements\+Colonne}} (\mbox{\hyperlink{sudoku_8c_a1b89d9af8baea27f48663c416006e88f}{t\+Grille}} g, int col)
+\begin{DoxyCompactList}\small\item\em Calcule le nombre d\textquotesingle{}éléments non nuls dans une colonne de la grille. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{sudoku_8c_a5c765aa879404450444a8965a5272e58}{nb\+Elements\+Ligne}} (\mbox{\hyperlink{sudoku_8c_a1b89d9af8baea27f48663c416006e88f}{t\+Grille}} g, int lig)
+\begin{DoxyCompactList}\small\item\em Calcule le nombre d\textquotesingle{}éléments non nuls dans une ligne de la grille. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{sudoku_8c_ae7ab0f20e4d850c06aec4cfd7a97c4c3}{possible}} (\mbox{\hyperlink{sudoku_8c_a1b89d9af8baea27f48663c416006e88f}{t\+Grille}}, int, int, int)
+\begin{DoxyCompactList}\small\item\em Vérifie si une valeur peut être insérée dans une case de la grille. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{sudoku_8c_a4ddef467d70df44dc4af777a9e9f1737}{saisir}} (int $\ast$)
+\begin{DoxyCompactList}\small\item\em Saisie d\textquotesingle{}un entier avec gestion des erreurs. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Programme de résolution de Sudoku en mode console. 
+
+~\newline
+
+
+\begin{DoxyAuthor}{Auteur}
+BLÉ\+AS 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+1.\+0 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+29 novembre 2023
+\end{DoxyDate}
+Ce programme permet à l\textquotesingle{}utilisateur de jouer au Sudoku en chargeant une grille à partir d\textquotesingle{}un fichier. L\textquotesingle{}utilisateur peut remplir les cases vides de la grille en respectant les règles du Sudoku. Le programme indique si une valeur peut être placée dans une case donnée en fonction des valeurs déjà présentes dans la ligne, la colonne et le bloc. 
+
+\doxysubsection{Documentation des macros}
+\mbox{\Hypertarget{sudoku_8c_a0240ac851181b84ac374872dc5434ee4}\label{sudoku_8c_a0240ac851181b84ac374872dc5434ee4}} 
+\index{sudoku.c@{sudoku.c}!N@{N}}
+\index{N@{N}!sudoku.c@{sudoku.c}}
+\doxysubsubsection{\texorpdfstring{N}{N}}
+{\footnotesize\ttfamily \#define N~3}
+
+
+
+Taille d\textquotesingle{}un bloc de Sudoku. 
+
+Taille d\textquotesingle{}une ligne/colonne d\textquotesingle{}une sous-\/grille de Sudoku. \mbox{\Hypertarget{sudoku_8c_a7b29335add3a553ed85d0e3ace85629c}\label{sudoku_8c_a7b29335add3a553ed85d0e3ace85629c}} 
+\index{sudoku.c@{sudoku.c}!TAILLE@{TAILLE}}
+\index{TAILLE@{TAILLE}!sudoku.c@{sudoku.c}}
+\doxysubsubsection{\texorpdfstring{TAILLE}{TAILLE}}
+{\footnotesize\ttfamily \#define TAILLE~9}
+
+
+
+Taille de la grille de Sudoku. 
+
+Taille d\textquotesingle{}une ligne/colonne d\textquotesingle{}une grille de Sudoku. 
+
+\doxysubsection{Documentation des définitions de type}
+\mbox{\Hypertarget{sudoku_8c_a1b89d9af8baea27f48663c416006e88f}\label{sudoku_8c_a1b89d9af8baea27f48663c416006e88f}} 
+\index{sudoku.c@{sudoku.c}!tGrille@{tGrille}}
+\index{tGrille@{tGrille}!sudoku.c@{sudoku.c}}
+\doxysubsubsection{\texorpdfstring{tGrille}{tGrille}}
+{\footnotesize\ttfamily t\+Grille}
+
+
+
+Type représentant une grille de Sudoku. 
+
+Tableau 9 par 9 correspondant à la grille d\textquotesingle{}un Sudoku. 
+
+\doxysubsection{Documentation des fonctions}
+\mbox{\Hypertarget{sudoku_8c_ab7b298099cbac123a5cf7b1f1abc411a}\label{sudoku_8c_ab7b298099cbac123a5cf7b1f1abc411a}} 
+\index{sudoku.c@{sudoku.c}!afficherGrille@{afficherGrille}}
+\index{afficherGrille@{afficherGrille}!sudoku.c@{sudoku.c}}
+\doxysubsubsection{\texorpdfstring{afficherGrille()}{afficherGrille()}}
+{\footnotesize\ttfamily void afficher\+Grille (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{sudoku_8c_a1b89d9af8baea27f48663c416006e88f}{t\+Grille}}}]{g }\end{DoxyParamCaption})}
+
+
+
+Affiche la grille de Sudoku. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em g} & Grille de Sudoku à afficher.\\
+\hline
+\end{DoxyParams}
+Cette fonction affiche et met en forme le tableau de type t\+Grille pour un affichage meilleur et semblable à une vrai grille de Sudoku. La fonction utilise les fonctions nb\+Elements\+Ligne et nb\+Elements\+Colonne pour \+:
+\begin{DoxyItemize}
+\item ajouter à l\textquotesingle{}affichage le nombre de cases non vides dans une ligne,
+\item et ajouter à l\textquotesingle{}affichage le nombre de cases non vides dans une colonne. 
+\end{DoxyItemize}\mbox{\Hypertarget{sudoku_8c_aa3ee2cc9921057f1141e8ee90a91512c}\label{sudoku_8c_aa3ee2cc9921057f1141e8ee90a91512c}} 
+\index{sudoku.c@{sudoku.c}!chargerGrille@{chargerGrille}}
+\index{chargerGrille@{chargerGrille}!sudoku.c@{sudoku.c}}
+\doxysubsubsection{\texorpdfstring{chargerGrille()}{chargerGrille()}}
+{\footnotesize\ttfamily void charger\+Grille (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{sudoku_8c_a1b89d9af8baea27f48663c416006e88f}{t\+Grille}}}]{g }\end{DoxyParamCaption})}
+
+
+
+Charge une grille de Sudoku à partir d\textquotesingle{}un fichier. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em g} & Grille de Sudoku à remplir.\\
+\hline
+\end{DoxyParams}
+Utilisateur saisi un nom de fichier en .sud, la fonction vérifie s\textquotesingle{}il existe et si celui-\/ci n\textquotesingle{}est pas altéré, si c\textquotesingle{}est le cas ; la grille est initialisée. \mbox{\Hypertarget{sudoku_8c_ac27a31e26d4fc963ce222c7592c75f53}\label{sudoku_8c_ac27a31e26d4fc963ce222c7592c75f53}} 
+\index{sudoku.c@{sudoku.c}!gpleine@{gpleine}}
+\index{gpleine@{gpleine}!sudoku.c@{sudoku.c}}
+\doxysubsubsection{\texorpdfstring{gpleine()}{gpleine()}}
+{\footnotesize\ttfamily bool gpleine (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{sudoku_8c_a1b89d9af8baea27f48663c416006e88f}{t\+Grille}}}]{g }\end{DoxyParamCaption})}
+
+
+
+Vérifie si la grille est pleine. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em g} & Grille de Sudoku. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+true si la grille est pleine, false sinon.
+\end{DoxyReturn}
+La fonction parcourt le tableau \textquotesingle{}g\textquotesingle{} de type t\+Grille et vérifie s\textquotesingle{}il reste des 0, si oui la fonction principale boucle. \mbox{\Hypertarget{sudoku_8c_ae66f6b31b5ad750f1fe042a706a4e3d4}\label{sudoku_8c_ae66f6b31b5ad750f1fe042a706a4e3d4}} 
+\index{sudoku.c@{sudoku.c}!main@{main}}
+\index{main@{main}!sudoku.c@{sudoku.c}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Fonction principale du programme de résolution de Sudoku. 
+
+\begin{DoxyReturn}{Renvoie}
+EXIT\+\_\+\+SUCCESS, Code de sortie normale du programme.
+\end{DoxyReturn}
+Le programme principal permet de jouer à un sudoku avec l\textquotesingle{}aide de plusieurs fonctions/procédures \+: il créé et génère une grille, l\textquotesingle{}affiche, demande à l\textquotesingle{}utilisateur des indices où saisir une valeur dans la grille, stock ces valeurs, vérifie si c\textquotesingle{}est possible de placer la valeur aux coordonnées, puis boucle, lorsque la grille est pleine ; il affiche un message de fin. \mbox{\Hypertarget{sudoku_8c_accce4fb88b0ef7c03360a49ac4fb1b0d}\label{sudoku_8c_accce4fb88b0ef7c03360a49ac4fb1b0d}} 
+\index{sudoku.c@{sudoku.c}!nbElementsColonne@{nbElementsColonne}}
+\index{nbElementsColonne@{nbElementsColonne}!sudoku.c@{sudoku.c}}
+\doxysubsubsection{\texorpdfstring{nbElementsColonne()}{nbElementsColonne()}}
+{\footnotesize\ttfamily int nb\+Elements\+Colonne (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{sudoku_8c_a1b89d9af8baea27f48663c416006e88f}{t\+Grille}}}]{g,  }\item[{int}]{col }\end{DoxyParamCaption})}
+
+
+
+Calcule le nombre d\textquotesingle{}éléments non nuls dans une colonne de la grille. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em g} & Grille de Sudoku. \\
+\hline
+{\em col} & Colonne de la grille. \\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{sudoku_8c_ab7b298099cbac123a5cf7b1f1abc411a}{afficher\+Grille()}} 
+\end{DoxySeeAlso}
+\begin{DoxyReturn}{Renvoie}
+Le nombre d\textquotesingle{}éléments non nuls dans la colonne.
+\end{DoxyReturn}
+La fonction parcourt une colonne \textquotesingle{}col\textquotesingle{} dans la grille et compte le nombre de valeurs non nuls. \mbox{\Hypertarget{sudoku_8c_a5c765aa879404450444a8965a5272e58}\label{sudoku_8c_a5c765aa879404450444a8965a5272e58}} 
+\index{sudoku.c@{sudoku.c}!nbElementsLigne@{nbElementsLigne}}
+\index{nbElementsLigne@{nbElementsLigne}!sudoku.c@{sudoku.c}}
+\doxysubsubsection{\texorpdfstring{nbElementsLigne()}{nbElementsLigne()}}
+{\footnotesize\ttfamily int nb\+Elements\+Ligne (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{sudoku_8c_a1b89d9af8baea27f48663c416006e88f}{t\+Grille}}}]{g,  }\item[{int}]{lig }\end{DoxyParamCaption})}
+
+
+
+Calcule le nombre d\textquotesingle{}éléments non nuls dans une ligne de la grille. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em g} & Grille de Sudoku. \\
+\hline
+{\em lig} & Ligne de la grille. \\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{Voir également}
+\mbox{\hyperlink{sudoku_8c_ab7b298099cbac123a5cf7b1f1abc411a}{afficher\+Grille()}} 
+\end{DoxySeeAlso}
+\begin{DoxyReturn}{Renvoie}
+Le nombre d\textquotesingle{}éléments non nuls dans la ligne.
+\end{DoxyReturn}
+La fonction parcourt une ligne \textquotesingle{}lig\textquotesingle{} dans la grille et compte le nombre de valeurs non nuls. \mbox{\Hypertarget{sudoku_8c_ae7ab0f20e4d850c06aec4cfd7a97c4c3}\label{sudoku_8c_ae7ab0f20e4d850c06aec4cfd7a97c4c3}} 
+\index{sudoku.c@{sudoku.c}!possible@{possible}}
+\index{possible@{possible}!sudoku.c@{sudoku.c}}
+\doxysubsubsection{\texorpdfstring{possible()}{possible()}}
+{\footnotesize\ttfamily bool possible (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{sudoku_8c_a1b89d9af8baea27f48663c416006e88f}{t\+Grille}}}]{g,  }\item[{int}]{lig,  }\item[{int}]{col,  }\item[{int}]{val }\end{DoxyParamCaption})}
+
+
+
+Vérifie si une valeur peut être insérée dans une case de la grille. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em g} & Grille de Sudoku. \\
+\hline
+{\em lig} & Ligne de la case. \\
+\hline
+{\em col} & Colonne de la case. \\
+\hline
+{\em val} & Valeur à insérer. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+true si l\textquotesingle{}insertion est possible, false sinon.
+\end{DoxyReturn}
+La fonction vérifie à l\textquotesingle{}aide de boucles \textquotesingle{}pour\textquotesingle{} \+:
+\begin{DoxyItemize}
+\item si la valeur \textquotesingle{}val\textquotesingle{} n\textquotesingle{}est pas déjà présente dans la ligne \textquotesingle{}lig\textquotesingle{} et dans la colonne \textquotesingle{}col\textquotesingle{},
+\item et si la valeur \textquotesingle{}val\textquotesingle{} n\textquotesingle{}est pas déjà présente la sous-\/grille correspondante. 
+\end{DoxyItemize}\mbox{\Hypertarget{sudoku_8c_a4ddef467d70df44dc4af777a9e9f1737}\label{sudoku_8c_a4ddef467d70df44dc4af777a9e9f1737}} 
+\index{sudoku.c@{sudoku.c}!saisir@{saisir}}
+\index{saisir@{saisir}!sudoku.c@{sudoku.c}}
+\doxysubsubsection{\texorpdfstring{saisir()}{saisir()}}
+{\footnotesize\ttfamily void saisir (\begin{DoxyParamCaption}\item[{int $\ast$}]{S }\end{DoxyParamCaption})}
+
+
+
+Saisie d\textquotesingle{}un entier avec gestion des erreurs. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em S} & Pointeur vers l\textquotesingle{}entier à saisir.\\
+\hline
+\end{DoxyParams}
+Cette fonction demande à l\textquotesingle{}utilisateur une saisie et vérifie s\textquotesingle{}il s\textquotesingle{}agit bien d\textquotesingle{}un entier entre 1 et 9, retourne un message d\textquotesingle{}erreur si ce n\textquotesingle{}est pas le cas. 

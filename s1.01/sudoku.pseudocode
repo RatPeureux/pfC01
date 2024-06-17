@@ -1,0 +1,221 @@
+/*.pseudocode est une extension pour le pseudo-code de l'IUT de Lannion par Noan, vous pouvez la trouver simplement en marquant pseudocode dans les extensions vscode */
+
+#define N 3
+#define TAILLE (N*N)
+typedef tCase tGrille[TAILLE][TAILLE];
+
+typedef struct {
+    int valeur;
+    int candidats[TAILLE];
+    int nbCandidats;
+} tCase1;
+
+typedef struct {
+    int valeur;
+    bool candidats[TAILLE+1]; // la case d’indice 0 est neutralisée
+    int nbCandidats;
+} tCase2;
+
+procédure jouerSud() c'est
+fonction creationGrille(sortF grille : tableau de entier) c'est
+procédure afficheGrille(entF/sortF grille : tableau de entier, entF/sortF victoire : booleen, entF val : entier, entF col : entier, entF lig : entier) c'est
+procédure saisie(entF grille : tableau de entier, sortF val : entier, sortF col : entier, sortF lig : entier) délivre entier c'est
+procédure remplacer(entF/sortF val : entier) délivre entier c'est
+procédure verificationPlace(entF val : entier, entF col : entier, entF lig : entier, entF grille : tableau de entier) c'est
+fonction rejouerSud(sortF rejouer : booleen) délivre booleen c'est
+
+procédure ajouterCandidat1(entF/sortF laCase : tCase1, entF val : entier) c'est
+procédure retirerCandidat1(entF/sortF laCase : tCase1, entF val : entier) c'est
+fonction estCandidat1(entF laCase : tCase1, entF val : entier) délivre booléen c'est
+fonction nbCandidats1(entF laCase : tCase1) délivre entier c'est
+
+procédure ajouterCandidat2(entF/sortF laCase : tCase2, entF val : entier) c'est
+procédure retirerCandidat2(entF/sortF laCase : tCase2, entF val : entier) c'est
+fonction estCandidat2(entF laCase : tCase2, entF val : entier) délivre booléen c'est
+fonction nbCandidats2(entF laCase : tCase2) délivre entier c'est
+
+programme sudoku c'est
+début
+    rejouer : booleen;
+    rejouer := faux
+
+    faire
+        jouerSud();
+        rejouerSud(sortE rejouer);
+    tant que (rejouer == vrai)
+fin
+
+procédure jouerSud() c'est
+début
+    val, col, lig : entier;
+    victoire : booleen;
+    victoire := faux;
+    grille : tableau[9][9] de entier;
+
+    creationGrille(sortE grille);
+
+    faire
+        saisie(sortE val, sortE col, sortE lig);
+        verificationPlace(entE val, entE col, entE lig, entE grille);
+        afficheGrille(entE/sortE grille, entE/sortE victoire, entE val, entE col, entE lig)
+    tant que (victoire == faux && val != -1)
+
+    ecrireEcran("\n\n*** Fin du Jeu ***\n\n");
+fin
+
+fonction creationGrille(sortF grille : tableau de entier) c'est
+/** génère une grille de sudoku, la retourne et l'affiche
+ * 
+ * @paramètres
+ * grille(sortie) : tableau d'entiers, forme d'une grille de sudoku (9x9)
+ * 
+ * @résulat
+ * tableau d'entiers, grille de sudoku
+ */
+
+procédure afficheGrille(entF/sortF grille : tableau de entier, entF/sortF victoire : booleen, entF val : entier, entF col : entier, entF lig : entier) c'est 
+/** actualisation et affichage de la grille du sudoku 
+ * 
+ * @paramètres
+ * grille(entrée/sortie) : tableau de entiers, forme d'une grille de sudoku (9x9)
+ * victoire(entrée/sortie) : booléen, décrit l'état de la partie, remportée('true') ou pas encore('false')
+ * val(entrée) : entier, valeur saisie par l'utilisateur dans une colonne 'col' et une ligne 'lig' de 'grille'
+ * col(entrée) : entier, colonne où la valeur 'val' doit être saisie dans 'grille'
+ * lig(entrée) : entier, ligne où la valeur 'val' doit être saisie dans 'grille'
+ * 
+ * @résulat
+ * tableau d'entiers, grille de sudoku avec la valeur 'val' ajoutée
+ * booléen, état de la partie, si (victoire == true) : message de victoire
+ */
+
+
+procédure saisie(entF grille : tableau de entier, sortF val : entier, sortF col : entier, sortF lig : entier) c'est 
+/** demande au joueur où veut-il saisir une valeur, puis laquelle
+ * 
+ * @paramètres
+ * grille(entrée) : tableau d'entiers, forme d'une grille de sudoku (9x9)
+ * val(sortie) : entier, valeur saisie par l'utilisateur dans une colonne 'col' et une ligne 'lig' de 'grille'
+ * col(sortie) : entier, colonne où la valeur 'val' doit être saisie dans 'grille'
+ * lig(sortie) : entier, ligne où la valeur 'val' doit être saisie dans 'grille'
+ * 
+ * @résulat
+ * entier, valeur saisie vérifiée (-1 pour abandonner)
+ * entier, colonne choisie pour 'val' (vérifiée)
+ * entier, ligne choisie pour 'val' (vérifiée)
+ */
+
+procédure remplacer(entF val : entier) c'est
+/** demande à l'utilisateur s'il souhaite réellement remplacer la valeur 'val' (O/n)
+ * (si la case choisie par l'utilisateur est non vide (!= 0) : appel par la procédure saisie()) 
+ *
+ * @paramètres
+ * val(entrée) : entier, valeur saisie par l'utilisateur
+ */
+
+procédure verificationPlace(entF val : entier, entF col : entier, entF lig : entier, entF grille : tableau de entier) c'est 
+/** vérifie que la colonne, la ligne ou le carré ne sont pas déjà occupée par une même valeur que 'val', si c'est le cas : message d'erreur + re saisie()
+ * 
+ * @paramètres
+ * val(entrée) : entier, valeur saisie par l'utilisateur dans une colonne 'col' et une ligne 'lig' de 'grille'
+ * col(entrée) : entier, colonne où la valeur 'val' doit être saisie dans 'grille'
+ * lig(entrée) : entier, ligne où la valeur 'val' doit être saisie dans 'grille'
+ * grille(entrée) : tableau de entiers, forme d'une grille de sudoku (9x9)
+ */
+
+fonction rejouerSud(sortF rejouer : booleen) c'est
+/** 
+ * 
+ * @paramètres
+ * rejouer(sortie) : booléen, décrit si l'utilisateur souhaite('true') ou ne souhaite pas('false') rejouer
+ * 
+ * @résulat
+ * booléen, 'rejouer'
+ */
+début
+    encore : chaîne(2);
+
+    ecrireEcran("Rejouer (O/n) ?\n");
+    lireClavier(encore);
+
+    si (encore == "O") alors
+        n := vrai;
+    sinonsi(encore == "n") alors
+        n := faux;
+    sinon
+        ecrireEcran("Je prend ça pour un non !");
+        n := faux;
+    finsi
+
+    retourne n
+fin
+
+// tCase1
+
+procédure ajouterCandidat1(entF/sortF laCase : tCase1, entF val : entier) c'est
+début
+    laCase.candidats[laCase.nbCandidats+1] = valeur;
+    laCase.nbCandidats := laCase.nbCandidats + 1;
+fin
+
+procédure retirerCandidat1(entF/sortF laCase : tCase1, entF val : entier) c'est
+début
+    i : entier;
+
+    pour i de 1 à (laCase.nbCandidats - 1) faire
+        si (laCase.candidats[i] >= val) alors
+            laCase.candidats[i] := laCase.candidats[i+1];
+        finsi        
+    finfaire    
+    laCase.nbCandidats := laCase.nbCandidats - 1;
+fin
+
+fonction estCandidat1(entF laCase : tCase1, entF val : entier) délivre booléen c'est
+début
+    i : entier;
+    estC : booléen;
+    estC := faux;
+
+    pour i de 1 à laCase.nbCandidats faire
+        si (laCase.candidats[i] == val) alors
+            estC := vrai;
+        finsi
+    finfaire
+
+    retourne estC;
+fin
+
+fonction nbCandidats1(entF laCase : tCase1) délivre entier c'est
+début
+    retourne laCase.nbCandidats;
+fin
+
+//tCase2
+
+procédure ajouterCandidat2(entF/sortF laCase : tCase2, entF val : entier) c'est
+début
+    laCase.candidats[val+1] = vrai;
+    laCase.nbCandidats := laCase.nbCandidats + 1;
+fin
+
+procédure retirerCandidat2(entF/sortF laCase : tCase2, entF val : entier) c'est
+début
+    laCase.candidats[val+1] = faux;
+    laCase.nbCandidats := laCase.nbCandidats - 1;
+fin
+
+fonction estCandidat2(entF laCase : tCase2, entF val : entier) délivre booléen c'est
+début
+    estC : booléen;
+    estC := faux;
+
+    si (laCase.candidats[val+1] == vrai) alors
+        estC := vrai;
+    finsi
+
+    retourne estC;
+fin
+
+fonction nbCandidats2(entF laCase : tCase2) délivre entier c'est
+début
+    retourne laCase.nbCandidats;
+fin
